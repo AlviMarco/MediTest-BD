@@ -4,7 +4,16 @@
   "installCommand": "npm ci --include=dev",
   "buildCommand": "npm run build",
   "devCommand": "npm run start:dev",
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/api/health"
+    }
+  ],
   "functions": {
+    "api/**/*.ts": {
+      "maxDuration": 30
+    },
     "server.ts": {
       "maxDuration": 30
     }
