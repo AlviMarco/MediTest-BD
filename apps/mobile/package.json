@@ -1,0 +1,8 @@
+{
+  "name": "meditest-mobile-web",
+  "private": true,
+  "version": "1.0.0",
+  "devDependencies": {
+    "netlify-plugin-flutter": "^1.1.0"
+  }
+}

@@ -67,6 +67,19 @@ npm.cmd --prefix apps/admin install
 npm.cmd --prefix apps/admin run build
 ```
 
+### Netlify Admin Panel
+
+The repository root has `netlify.toml` configured for the admin panel. This is useful when a Netlify project is connected to the repository root.
+
+Netlify settings:
+
+- Base directory: `apps/admin`
+- Build command: `npm ci && npm run build`
+- Publish directory: `.next`
+- Environment variable: `NEXT_PUBLIC_API_URL=https://your-render-service.onrender.com/api`
+
+If you create the Netlify site by selecting the package directory `apps/admin`, Netlify can use `apps/admin/netlify.toml`.
+
 ## Mobile
 
 Build release with:
@@ -78,3 +91,24 @@ flutter build apk --release --dart-define=API_BASE_URL=https://your-api-domain.c
 For Play Store release, update app id, app icon, privacy policy, signing config, and version/build number.
 
 Android package id is set to `com.meditestbd.app`. Create `apps/mobile/android/key.properties` from `key.properties.example` and point it to your Play Store upload keystore before generating a real release bundle.
+
+### Netlify Mobile Web/PWA
+
+Create a separate Netlify site for the mobile web version and select `apps/mobile` as the package directory.
+
+Netlify settings:
+
+- Package directory: `apps/mobile`
+- Build command: `flutter build web --release --dart-define=API_BASE_URL=${API_BASE_URL}`
+- Publish directory: `build/web`
+- Environment variable: `API_BASE_URL=https://your-render-service.onrender.com/api`
+
+The Flutter SDK build plugin is configured in `apps/mobile/netlify.toml`.
+
+### Future APK Build
+
+When the backend URL is ready, build an Android APK with:
+
+```powershell
+npm.cmd run build:mobile:apk -- -ApiBaseUrl https://your-render-service.onrender.com/api
+```

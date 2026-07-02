@@ -77,4 +77,28 @@ After Render gives you a backend URL, use it as:
 https://your-render-service.onrender.com/api
 ```
 
+## Netlify Frontend Deploy
+
+The root `netlify.toml` deploys the admin panel from `apps/admin`.
+
+Admin Netlify environment:
+
+```text
+NEXT_PUBLIC_API_URL=https://your-render-service.onrender.com/api
+```
+
+For a separate mobile web/PWA Netlify site, select `apps/mobile` as the package directory. Its `netlify.toml` builds Flutter web.
+
+Mobile web Netlify environment:
+
+```text
+API_BASE_URL=https://your-render-service.onrender.com/api
+```
+
+For a future Android APK:
+
+```powershell
+npm.cmd run build:mobile:apk -- -ApiBaseUrl https://your-render-service.onrender.com/api
+```
+
 More detail is in `docs/`.

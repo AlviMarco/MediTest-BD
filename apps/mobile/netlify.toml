@@ -1,0 +1,24 @@
+[build]
+command = "flutter build web --release --dart-define=API_BASE_URL=${API_BASE_URL}"
+publish = "build/web"
+
+[build.environment]
+NODE_VERSION = "22.22.0"
+
+[[plugins]]
+package = "netlify-plugin-flutter"
+
+  [plugins.inputs]
+  channel = "stable"
+
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200
+
+[[headers]]
+for = "/*"
+  [headers.values]
+  X-Frame-Options = "DENY"
+  X-Content-Type-Options = "nosniff"
+  Referrer-Policy = "strict-origin-when-cross-origin"
