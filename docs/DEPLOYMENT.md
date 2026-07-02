@@ -67,6 +67,8 @@ After Vercel deploys, test:
 https://your-vercel-backend.vercel.app/api/health
 ```
 
+The health endpoint must return JSON. If it shows a Vercel login page or redirects to `/sso-api`, disable Vercel Deployment Protection for the production deployment or use an unprotected production domain before connecting the admin/mobile apps.
+
 Use the backend base URL in frontend/mobile builds:
 
 ```text

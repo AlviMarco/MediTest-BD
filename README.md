@@ -99,6 +99,8 @@ Health check:
 https://your-vercel-backend.vercel.app/api/health
 ```
 
+This endpoint must return JSON. If it shows a Vercel login page, turn off Vercel Deployment Protection for production before using it in the admin panel or mobile app.
+
 ## Netlify Frontend Deploy
 
 The root `netlify.toml` deploys the admin panel from `apps/admin`.
