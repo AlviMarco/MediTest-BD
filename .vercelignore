@@ -1,0 +1,12 @@
+apps/admin
+apps/mobile
+logs
+docs
+node_modules
+**/node_modules
+**/.next
+**/build
+**/dist
+**/coverage
+**/.dart_tool
+*.log

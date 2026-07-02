@@ -4,7 +4,12 @@
   "installCommand": "npm --prefix apps/api ci --include=dev",
   "buildCommand": "npm --prefix apps/api run build",
   "devCommand": "npm --prefix apps/api run start:dev",
+  "outputDirectory": "public",
   "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "/api?__path=:path*"
+    },
     {
       "source": "/",
       "destination": "/api/health"
@@ -12,9 +17,6 @@
   ],
   "functions": {
     "api/**/*.ts": {
-      "maxDuration": 30
-    },
-    "server.ts": {
       "maxDuration": 30
     }
   }
