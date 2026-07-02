@@ -1,0 +1,12 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "installCommand": "npm --prefix apps/api ci --include=dev",
+  "buildCommand": "npm --prefix apps/api run build",
+  "devCommand": "npm --prefix apps/api run start:dev",
+  "functions": {
+    "server.ts": {
+      "maxDuration": 30
+    }
+  }
+}

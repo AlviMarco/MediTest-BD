@@ -34,6 +34,45 @@ Use that value later for:
 - Admin: `NEXT_PUBLIC_API_URL=https://your-render-service.onrender.com/api`
 - Mobile: `--dart-define=API_BASE_URL=https://your-render-service.onrender.com/api`
 
+### Vercel Backend
+
+The backend can also run on Vercel as a captured Node.js server. The repo includes:
+
+- `server.ts` for deployments from the repository root
+- `apps/api/server.ts` for deployments where Vercel Root Directory is `apps/api`
+- `vercel.json` and `apps/api/vercel.json`
+
+Recommended Vercel project settings:
+
+- Root Directory: repository root, or `apps/api`
+- Framework Preset: Other
+- Build Command: use the value from `vercel.json`
+- Install Command: use the value from `vercel.json`
+
+Required Vercel environment variables:
+
+- `DATABASE_URL`: production PostgreSQL URL
+- `JWT_SECRET`: at least 32 random characters
+- `JWT_EXPIRES_IN=7d`
+- `NODE_ENV=production`
+- `API_PREFIX=api`
+- `DB_SSL=true`
+- `DB_SYNCHRONIZE=false`
+- `DB_LOGGING=false`
+- `CORS_ORIGINS`: comma-separated frontend origins, for example `https://funny-sable-a9846a.netlify.app`
+
+After Vercel deploys, test:
+
+```text
+https://your-vercel-backend.vercel.app/api/health
+```
+
+Use the backend base URL in frontend/mobile builds:
+
+```text
+https://your-vercel-backend.vercel.app/api
+```
+
 Required environment:
 
 - `DATABASE_URL`

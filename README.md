@@ -77,6 +77,28 @@ After Render gives you a backend URL, use it as:
 https://your-render-service.onrender.com/api
 ```
 
+## Vercel Backend Deploy
+
+The backend also supports Vercel through `server.ts` and `vercel.json`. In Vercel, set these environment variables:
+
+```text
+DATABASE_URL=your-production-postgres-url
+JWT_SECRET=at-least-32-random-characters
+JWT_EXPIRES_IN=7d
+NODE_ENV=production
+API_PREFIX=api
+DB_SSL=true
+DB_SYNCHRONIZE=false
+DB_LOGGING=false
+CORS_ORIGINS=https://your-admin-or-mobile-frontend.netlify.app
+```
+
+Health check:
+
+```text
+https://your-vercel-backend.vercel.app/api/health
+```
+
 ## Netlify Frontend Deploy
 
 The root `netlify.toml` deploys the admin panel from `apps/admin`.
