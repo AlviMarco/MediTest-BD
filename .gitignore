@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+
+# Node/Next/Nest build output
+.next/
+dist/
+build/
+coverage/
+
+# Flutter/Dart generated output
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+**/ios/Flutter/ephemeral/
+**/macos/Flutter/ephemeral/
+**/linux/flutter/ephemeral/
+**/windows/flutter/ephemeral/
+**/android/local.properties
+*.iml
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Logs and OS files
+*.log
+.DS_Store
+Thumbs.db

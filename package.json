@@ -1,0 +1,23 @@
+{
+  "name": "meditest-bd-production",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Production-ready MediTest BD workspace containing mobile app, admin panel, and API.",
+  "scripts": {
+    "dev:api": "npm --prefix apps/api run start:dev",
+    "dev:admin": "npm --prefix apps/admin run dev",
+    "start:local": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/start-local.ps1",
+    "start:local:fast": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/start-local.ps1 -SkipBuild",
+    "start:mobile-web": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/start-mobile-web.ps1",
+    "start:mobile-web:fast": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/start-mobile-web.ps1 -SkipBuild",
+    "stop:api": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/stop-port.ps1 -Port 4000",
+    "stop:admin": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/stop-port.ps1 -Port 3000",
+    "stop:mobile-web": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/stop-port.ps1 -Port 8081",
+    "stop:local": "npm run stop:api && npm run stop:admin && npm run stop:mobile-web",
+    "build:api": "npm --prefix apps/api run build",
+    "build:admin": "npm --prefix apps/admin run build",
+    "test:api": "npm --prefix apps/api test",
+    "lint:admin": "npm --prefix apps/admin run lint",
+    "lint:api": "npm --prefix apps/api run lint"
+  }
+}
