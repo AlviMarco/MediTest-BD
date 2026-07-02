@@ -3,6 +3,9 @@
   "private": true,
   "version": "1.0.0",
   "description": "Production-ready MediTest BD workspace containing mobile app, admin panel, and API.",
+  "engines": {
+    "node": ">=22.0.0 <23.0.0"
+  },
   "scripts": {
     "dev:api": "npm --prefix apps/api run start:dev",
     "dev:admin": "npm --prefix apps/admin run dev",
@@ -16,6 +19,8 @@
     "stop:local": "npm run stop:api && npm run stop:admin && npm run stop:mobile-web",
     "build:api": "npm --prefix apps/api run build",
     "build:admin": "npm --prefix apps/admin run build",
+    "render:build:api": "npm --prefix apps/api ci --include=dev && npm --prefix apps/api run build && npm --prefix apps/api prune --omit=dev",
+    "render:start:api": "npm --prefix apps/api run start:prod",
     "test:api": "npm --prefix apps/api test",
     "lint:admin": "npm --prefix apps/admin run lint",
     "lint:api": "npm --prefix apps/api run lint"

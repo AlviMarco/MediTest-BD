@@ -4,6 +4,36 @@
 
 Recommended platforms: Render, Railway, Fly.io, AWS, or any Node.js host with PostgreSQL network access.
 
+### Render Blueprint
+
+This repo includes `render.yaml` at the repository root. In Render, create a new Blueprint from the GitHub repo and select the `main` branch.
+
+Render will create one web service:
+
+- Service name: `meditest-bd-api`
+- Runtime: Node
+- Health check: `/api/health`
+- Build command: `npm run render:build:api`
+- Start command: `npm run render:start:api`
+
+When Render asks for environment variables, set:
+
+- `DATABASE_URL`: your production PostgreSQL connection string
+- `CORS_ORIGINS`: comma-separated allowed frontend URLs, for example `https://your-admin-domain.com`
+
+Render generates `JWT_SECRET` automatically from the Blueprint. Do not put real secrets in GitHub.
+
+After the deploy succeeds, the backend URL will look like:
+
+```text
+https://your-render-service.onrender.com/api
+```
+
+Use that value later for:
+
+- Admin: `NEXT_PUBLIC_API_URL=https://your-render-service.onrender.com/api`
+- Mobile: `--dart-define=API_BASE_URL=https://your-render-service.onrender.com/api`
+
 Required environment:
 
 - `DATABASE_URL`

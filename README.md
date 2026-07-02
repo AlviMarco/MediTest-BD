@@ -67,4 +67,14 @@ If you see `EADDRINUSE` for port `4000` or `3000`, it means that server is alrea
 - Set `CORS_ORIGINS` to the deployed admin/mobile web origins only.
 - Build mobile release with `--dart-define=API_BASE_URL=https://your-api-domain.com/api`.
 
+## Render Backend Deploy
+
+This repository includes `render.yaml` for deploying the backend API from the `main` branch. In Render, create a Blueprint from this GitHub repo. Render will ask for `DATABASE_URL` and `CORS_ORIGINS`; `JWT_SECRET` is generated automatically.
+
+After Render gives you a backend URL, use it as:
+
+```text
+https://your-render-service.onrender.com/api
+```
+
 More detail is in `docs/`.
