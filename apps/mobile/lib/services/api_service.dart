@@ -5,7 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class ApiService {
   static const String baseUrl = String.fromEnvironment(
     'API_BASE_URL',
-    defaultValue: 'http://10.0.2.2:4000/api',
+    defaultValue: 'https://medi-test-bd.vercel.app/api',
   );
   static const Duration _timeout = Duration(seconds: 20);
 
